@@ -1,0 +1,29 @@
+body {
+	font-family: "Roboto";
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 120%;
+	color: #000;
+}
+
+body.lock {
+	overflow: hidden;
+}
+
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+}
+
+.container {
+	max-width: 1350px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+.title-h1 {
+	font-size: 36px;
+	line-height: 120%;
+	text-align: center;
+}
