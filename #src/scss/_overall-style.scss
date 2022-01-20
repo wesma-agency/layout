@@ -1,6 +1,6 @@
 body {
-	font-family: "Roboto";
-	font-weight: 700;
+	font-family: "Exo 2";
+	font-weight: normal;
 	font-size: 16px;
 	line-height: 120%;
 	color: #000;
@@ -17,13 +17,233 @@ body.lock {
 }
 
 .container {
-	max-width: 1350px;
+	max-width: 1750px;
 	margin: 0 auto;
 	padding: 0 15px;
 }
 
 .title-h1 {
-	font-size: 36px;
-	line-height: 120%;
+	font-weight: bold;
+	font-size: 60px;
+	line-height: 140%;
+	color: #000000;
+}
+
+@media (max-width: 1700px) {
+	.title-h1 {
+		@include adaptiv-font(60, 30)
+	}
+}
+
+// button
+
+.btn-actions {
+	margin-bottom: 15px;
+}
+
+.btn-magic-wrapper {
+	display: block;
+	height: 100%;
+	//  animation: hue-rotate 10s linear infinite;
+}
+
+.bubble-container {
+	position: relative;
+	display: inline-block;
+	margin: 5px 0;
+}
+
+.bubble-container.clickMore.pushBut {
+	-webkit-font-smoothing: antialiased;
+	background-color: #000;
+	border: none;
+	color: #fff;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 100;
+	text-decoration: none;
+	border-radius: 20px;
+	color: #fff;
+	min-width: 207px;
 	text-align: center;
+	padding: 17px 15px;
+	border: 1px solid transparent;
+	transition: all 0.1s ease-out;
+}
+
+.bubble-container:not(.info-settings__icon--cart) {
+}
+
+.bubble-container.clickMore.pushBut:hover {
+	background-color: #43bea2;
+	color: #fff;
+}
+
+.button {
+	-webkit-font-smoothing: antialiased;
+	background-color: #43bea2;
+	border: none;
+	color: #fff;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: normal;
+	text-decoration: none;
+	border-radius: 20px;
+	color: #fff;
+	min-width: 207px;
+	text-align: center;
+	padding: 14px 15px;
+	border: 1px solid transparent;
+	transition: all 0.1s ease-out;
+}
+
+.button:hover {
+	background-color: #43bea2;
+	color: #fff;
+}
+
+.button:active {
+	transform: scale(0.95);
+}
+
+.button-bubble {
+	position: relative;
+	z-index: 2;
+	color: white;
+	background: #43bea2;
+
+	&:hover {
+		background: none;
+	}
+
+	&:hover + .button-bubble__effect-container .circle {
+		background: darken(#43bea2, 15%);
+	}
+
+	&:hover + .button-bubble__effect-container .button {
+		background: darken(#43bea2, 15%);
+	}
+
+	&:active + .button-bubble__effect-container {
+		transform: scale(0.95);
+	}
+}
+
+.button-bubble__effect-container {
+	position: absolute;
+	display: block;
+	width: 200%;
+	height: 400%;
+	top: -150%;
+	left: -50%;
+	// -webkit-filter: url("#goo");
+	// filter: url("#goo");
+	transition: all 0.1s ease-out;
+	pointer-events: none;
+}
+
+.button-bubble__effect-container .circle {
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	border-radius: 15px;
+	background: #43bea2;
+	transition: background 0.1s ease-out;
+}
+
+.button-bubble__effect-container .circle.top-left {
+	top: 40%;
+	left: 27%;
+}
+
+.button-bubble__effect-container .circle.bottom-right {
+	bottom: 40%;
+	right: 27%;
+}
+
+.button-bubble--border {
+	color: #000000;
+	background: transparent;
+	border: 1px solid #000000;
+}
+
+.goo {
+	position: absolute;
+	visibility: hidden;
+	width: 1px;
+	height: 1px;
+}
+
+.button-bubble__container {
+	top: 50%;
+	margin-top: -25px;
+}
+
+.effect-button {
+	position: absolute;
+	top: 50%;
+	left: 25%;
+	z-index: 1;
+	width: 50%;
+	height: 25%;
+	background: #43bea2;
+	transform: translateY(-50%);
+	transition: background 0.1s ease-out;
+}
+
+.effect-button--border {
+	background-color: transparent;
+}
+
+.button-bubble--border ~ .button-bubble__effect-container .circle {
+	background: transparent;
+}
+
+.button-bubble--border {
+	&:hover {
+		background: none;
+	}
+
+	&:hover + .button-bubble__effect-container .circle {
+		background: #000000;
+	}
+
+	&:hover + .button-bubble__effect-container .button {
+		color: #fff;
+		background: #000000;
+	}
+
+	&:active + .button-bubble__effect-container {
+		transform: scale(0.95);
+	}
+}
+
+@keyframes hue-rotate {
+	from {
+		-webkit-filter: hue-rotate(0);
+		-moz-filter: hue-rotate(0);
+		-ms-filter: hue-rotate(0);
+		filter: hue-rotate(0);
+	}
+	to {
+		-webkit-filter: hue-rotate(360deg);
+		-moz-filter: hue-rotate(360deg);
+		-ms-filter: hue-rotate(360deg);
+		filter: hue-rotate(360deg);
+	}
+}
+
+@media (max-width: 1170px) {
+	.button {
+		min-width: 175px;
+		padding: 10px 15px;
+	}
+}
+
+@media (max-width: 500px) {
+	.button {
+		font-size: 14px;
+		min-width: 140px;
+		padding: 8px 10px;
+	}
 }

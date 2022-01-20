@@ -1,9 +1,142 @@
 .header {
-  &.scrolled {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    z-index: 100;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.13);
+  &__wrap {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+     & img {
+       width: 230px;
+     }
+  }
+
+  &__middle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__middle-item {
+    &:not(:last-child) {
+      margin-right: 100px;
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 120%;
+    color: #AAAAAA;
+  }
+
+  &__phone {
+    & a {
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 120%;
+      color: #000000;
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s ease;
+      &:hover {
+        border-color: #000;
+      }
+    }
+  }
+
+  &__email {
+    & a {
+      font-size: 14px;
+      line-height: 120%;
+      color: #000000;
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s ease;
+      &:hover {
+        border-color: #000;
+      }
+    }
+  }
+
+  &__presentation {
+    position: relative;
+    padding-right: 35px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      right: 0;
+      width: 16px;
+      height: 21px;
+      background: url("../img/icon-download.svg") no-repeat;
+    }
+    & a {
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 120%;
+        color: #000000;
+        border-bottom: 1px solid #000;
+        transition: all 0.3s ease;
+        &:hover {
+          border-color: transparent;
+        }
+    }
+  }
+
+  &__button {
   }
 }
+
+@media (max-width: 1600px) {
+  .header {
+    &__middle-item {
+      &:not(:last-child) {
+        margin-right: 50px;
+      }
+    } 
+  }
+}
+
+@media (max-width: 1400px) {
+  .header {
+    &__wrap {
+      padding: 10px 0;
+    }
+
+    &__middle-item {
+      &:first-child {
+        display: none;
+      }
+    } 
+
+    &__logo {
+      & img {
+        width: 160px;
+      }
+    }
+
+    &__presentation {
+      padding-right: 25px;
+      &::before {
+        top: 1px;
+      }
+       & a {
+        font-size: 16px;
+       }
+    } 
+  }
+}
+
+@media (max-width: 1170px) {
+  .header {
+    &__logo {
+      margin-right: 20px;
+    }
+
+    &__middle {
+      display: none;
+    }
+  }
+}
+
